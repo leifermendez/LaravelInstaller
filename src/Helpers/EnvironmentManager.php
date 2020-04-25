@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 
 class EnvironmentManager
 {
+
     /**
      * @var string
      */
