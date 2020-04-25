@@ -120,6 +120,9 @@ class EnvironmentManager
         'MAIL_USERNAME='.$request->mail_username."\n".
         'MAIL_PASSWORD='.$request->mail_password."\n".
         'MAIL_ENCRYPTION='.$request->mail_encryption."\n\n".
+        'STRIPE_PLATFORM_ID=\''.$request->stripe_app_id."'\n".
+        'STRIPE_KEY='.$request->stripe_app_pk."\n".
+        'STRIPE_SECRET='.$request->stripe_app_sk."\n\n".
         'PUSHER_APP_ID='.$request->pusher_app_id."\n".
         'PUSHER_APP_KEY='.$request->pusher_app_key."\n".
         'PUSHER_APP_SECRET='.$request->pusher_app_secret;
