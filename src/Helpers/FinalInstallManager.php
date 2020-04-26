@@ -18,6 +18,7 @@ class FinalInstallManager
         $outputLog = new BufferedOutput;
 
         $this->generateKey($outputLog);
+        $this->generateJwt($outputLog);
         $this->publishVendorAssets($outputLog);
 
         return $outputLog->fetch();
@@ -34,6 +35,19 @@ class FinalInstallManager
         try {
             if (config('installer.final.key')) {
                 Artisan::call('key:generate', ['--force'=> true], $outputLog);
+            }
+        } catch (Exception $e) {
+            return static::response($e->getMessage(), $outputLog);
+        }
+
+        return $outputLog;
+    }
+
+    private static function generateJwt(BufferedOutput $outputLog)
+    {
+        try {
+            if (config('installer.final.key')) {
+                Artisan::call('jwt:secret', ['--force'=> true], $outputLog);
             }
         } catch (Exception $e) {
             return static::response($e->getMessage(), $outputLog);
