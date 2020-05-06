@@ -50,6 +50,16 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
         'as' => 'final',
         'uses' => 'FinalController@finish',
     ]);
+
+    Route::get('settings', [
+        'as' => 'settings',
+        'uses' => 'SettingsController@settings',
+    ]);
+
+    Route::post('settings/saveWizard', [
+        'as' => 'settingsSaveWizard',
+        'uses' => 'SettingsController@saveWizard',
+    ]);
 });
 
 Route::group(['prefix' => 'update', 'as' => 'LaravelUpdater::', 'namespace' => 'RachidLaasri\LaravelInstaller\Controllers', 'middleware' => 'web'], function () {

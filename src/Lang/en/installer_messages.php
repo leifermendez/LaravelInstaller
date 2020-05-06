@@ -7,7 +7,7 @@ return [
      * Shared translations.
      *
      */
-    'title' => 'Laravel Installer',
+    'title' => 'Ecommerce Installer',
     'next' => 'Next Step',
     'back' => 'Previous',
     'finish' => 'Install',
@@ -22,9 +22,9 @@ return [
      */
     'welcome' => [
         'templateTitle' => 'Welcome',
-        'title'   => 'Laravel Installer',
+        'title' => 'Ecommerce Installer',
         'message' => 'Easy Installation and Setup Wizard.',
-        'next'    => 'Check Requirements',
+        'next' => 'Check Requirements',
     ],
 
     /*
@@ -35,7 +35,7 @@ return [
     'requirements' => [
         'templateTitle' => 'Step 1 | Server Requirements',
         'title' => 'Server Requirements',
-        'next'    => 'Check Permissions',
+        'next' => 'Check Permissions',
     ],
 
     /*
@@ -94,6 +94,10 @@ return [
                 'app_log_level_label_alert' => 'alert',
                 'app_log_level_label_emergency' => 'emergency',
                 'app_url_label' => 'App Url',
+                'app_stripe_app_id' => 'ID Stripe connect',
+                'app_stripe_app_id_click' => '(click)',
+                'app_stripe_app_sk' => 'Secret key stripe (sk_)',
+                'app_stripe_app_pk' => 'Public key stripe (pk_)',
                 'app_url_placeholder' => 'App Url',
                 'db_connection_failed' => 'Could not connect to the database.',
                 'db_connection_label' => 'Database Connection',
@@ -176,7 +180,7 @@ return [
      *
      */
     'installed' => [
-        'success_log_message' => 'Laravel Installer successfully INSTALLED on ',
+        'success_log_message' => 'Ecommerce Installer successfully INSTALLED on ',
     ],
 
     /*
@@ -195,6 +199,65 @@ return [
         'exit' => 'Click here to exit',
     ],
 
+    /**
+     * Settings page
+     */
+
+    'settings' => [
+        'title' => 'Configure application',
+        'templateTitle' => 'Configure application',
+        'tab' => 'Setting',
+        'finished' => 'Application has been successfully installed.',
+        'migration' => 'Migration &amp; Seed Console Output:',
+        'console' => 'Application Console Output:',
+        'log' => 'Installation Log Entry:',
+        'env' => 'Final .env File:',
+        'exit' => 'Click here to exit',
+        'form' => [
+            'true' => 'TRUE',
+            'false' => 'FALSE',
+            'app_limit_shopping' => 'Limit items shopping cart',
+            'app_limit_shopping_label' => '50',
+            'app_currency' => 'Currency',
+            'app_currency_label' => 'EUR',
+            'app_feed' => 'Feed percentage',
+            'app_feed_label' => '0.03',
+            'app_feed_amount' => 'Feed fixed',
+            'app_feed_amount_label' => '3',
+            'app_feed_limit' => 'Feed limit price',
+            'app_feed_limit_label' => '100',
+            'app_delivery' => 'Delivery price',
+            'app_delivery_label' => '6.50',
+            'app_delivery_tax' => 'TAX',
+            'app_delivery_tax_label' => '0.21',
+            'app_delivery_countries' => 'ISO Code countries',
+            'app_delivery_countries_label' => 'ES',
+            'app_redirect' => 'Stripe redirect OAuth',
+            'app_redirect_label' => 'http://localhost:4200',
+            'app_search_range' => 'Search range KM',
+            'app_search_range_label' => '10',
+            'app_discount_supplier' => 'Discount supplier',
+            'app_discount_supplier_label' => '1',
+            'app_delivery_auto' => 'Delivery',
+            'app_delivery_auto_label' => '1',
+            'app_sms' => 'SMS',
+            'app_sms_label' => '1',
+            'app_range_closed' => 'Only near shops',
+            'app_range_closed_label' => '1',
+            'app_google_vision' => 'Google vision',
+            'app_google_vision_label' => '1',
+            'app_user_confirmed' => 'Only user confirmed',
+            'app_user_confirmed_label' => '1',
+            'app_market_place' => 'Enabled marketplace',
+            'app_market_place_label' => '1',
+            'app_schedule' => 'Schedule',
+            'app_schedule_label' => '1',
+            'app_edge_time' => 'Edge time',
+            'app_edge_time_label' => '30',
+            'app_database_pass' => 'DB success',
+            'app_database_fail' => 'DB version not support (MariaDB >= 10.2) (MySQL >= 5.7.8)',
+        ]
+    ],
     /*
      *
      * Update specific translations
@@ -214,7 +277,7 @@ return [
          *
          */
         'welcome' => [
-            'title'   => 'Welcome To The Updater',
+            'title' => 'Welcome To The Updater',
             'message' => 'Welcome to the update wizard.',
         ],
 
@@ -224,7 +287,7 @@ return [
          *
          */
         'overview' => [
-            'title'   => 'Overview',
+            'title' => 'Overview',
             'message' => 'There is 1 update.|There are :number updates.',
             'install_updates' => 'Install Updates',
         ],
@@ -241,7 +304,7 @@ return [
         ],
 
         'log' => [
-            'success_message' => 'Laravel Installer successfully UPDATED on ',
+            'success_message' => 'Ecommerce Installer successfully UPDATED on ',
         ],
     ],
 ];

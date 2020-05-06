@@ -21,7 +21,7 @@ class FinalController extends Controller
     public function finish(InstalledFileManager $fileManager, FinalInstallManager $finalInstall, EnvironmentManager $environment)
     {
         $finalMessages = $finalInstall->runFinal();
-        $finalStatusMessage = $fileManager->update();
+        $finalStatusMessage = '';
         $finalEnvFile = $environment->getEnvContent();
 
         event(new LaravelInstallerFinished);
