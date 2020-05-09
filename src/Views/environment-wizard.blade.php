@@ -37,7 +37,7 @@
             <div class="tab" id="tab1content">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                <div class="form-group {{ $errors->has('app_name') ? ' has-error ' : '' }}">
+                <div class="form-group {{ $errors ?? '' }}">
                     <label for="app_name">
                         {{ trans('installer_messages.environment.wizard.form.app_name_label') }}
                     </label>

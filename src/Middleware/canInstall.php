@@ -4,8 +4,9 @@ namespace RachidLaasri\LaravelInstaller\Middleware;
 
 use Closure;
 use Redirect;
+use RachidLaasri\LaravelInstaller\Controllers\FinalController;
 
-class canInstall
+class canInstall extends FinalController
 {
     /**
      * Handle an incoming request.
@@ -40,8 +41,10 @@ class canInstall
                 case '404':
                 case 'default':
                 default:
-                    echo "<b>Instalación finalizada</b>";
-                    dd();
+                    $routeName = config('installer.installed.redirectOptions.finish.name');
+                    $class = new FinalController();
+                    $data = $class->getTokenClient();
+                    return redirect()->route($routeName)->with(['data' => $data]);
                     break;
             }
         }

@@ -127,7 +127,7 @@ return [
     /*
     |--------------------------------------------------------------------------
     | Installed Middleware Options
-    |--------------------------------------------------------------------------
+    |------------------------------ --------------------------------------------
     | Different available status switch configuration for the
     | canInstall middleware located in `canInstall.php`.
     |
@@ -144,6 +144,10 @@ return [
             'dump' => [
                 'data' => 'Dumping a not found message.',
             ],
+            'finish' => [
+                'name' => 'finishInstaller',
+                'data' => [],
+            ]
         ],
     ],
 

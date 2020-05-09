@@ -1,6 +1,8 @@
 <?php
 
-Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' => 'RachidLaasri\LaravelInstaller\Controllers', 'middleware' => ['web', 'install']], function () {
+Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::',
+    'namespace' => 'RachidLaasri\LaravelInstaller\Controllers',
+    'middleware' => ['web', 'install']], function () {
     Route::get('/', [
         'as' => 'welcome',
         'uses' => 'WelcomeController@welcome',
@@ -60,9 +62,11 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
         'as' => 'settingsSaveWizard',
         'uses' => 'SettingsController@saveWizard',
     ]);
+
 });
 
-Route::group(['prefix' => 'update', 'as' => 'LaravelUpdater::', 'namespace' => 'RachidLaasri\LaravelInstaller\Controllers', 'middleware' => 'web'], function () {
+Route::group(['prefix' => 'update', 'as' => 'LaravelUpdater::',
+    'namespace' => 'RachidLaasri\LaravelInstaller\Controllers', 'middleware' => 'web'], function () {
     Route::group(['middleware' => 'update'], function () {
         Route::get('/', [
             'as' => 'welcome',
@@ -86,4 +90,14 @@ Route::group(['prefix' => 'update', 'as' => 'LaravelUpdater::', 'namespace' => '
         'as' => 'final',
         'uses' => 'UpdateController@finish',
     ]);
+
+    Route::get('finish', [
+        'as' => 'finishInstaller',
+        'uses' => 'FinalController@connectionData',
+    ])->middleware('AdminPanel');
+
+    Route::post('finish', [
+        'as' => 'finishInstaller',
+        'uses' => 'FinalController@saveSettingTemplate',
+    ])->middleware('AdminPanel');
 });
