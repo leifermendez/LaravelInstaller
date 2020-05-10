@@ -41,10 +41,7 @@ class canInstall extends FinalController
                 case '404':
                 case 'default':
                 default:
-                    $routeName = config('installer.installed.redirectOptions.finish.name');
-                    $class = new FinalController();
-                    $data = $class->getTokenClient();
-                    return redirect()->route($routeName)->with(['data' => $data]);
+                    return redirect()->route('login');
                     break;
             }
         }

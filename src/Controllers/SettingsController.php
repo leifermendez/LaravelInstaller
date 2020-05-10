@@ -2,9 +2,11 @@
 
 namespace RachidLaasri\LaravelInstaller\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use RachidLaasri\LaravelInstaller\Events\EnvironmentSaved;
@@ -15,6 +17,7 @@ class SettingsController extends Controller
 {
     static $MARIA_DB = '10.2';
     static $MYSQL = '5.7.8';
+    static $USER_ADMIN = 'admin@mail.com';
 
     private function checkDatabaseConnection()
     {
@@ -114,9 +117,14 @@ class SettingsController extends Controller
 
         $results = $this->saveSetting($validator);
 
+        /**
+         * Iniciamos session con el usuario admin
+         */
+        $userAdmin = User::where('email', self::$USER_ADMIN)->first();
+        Auth::login($userAdmin);
 //        event(new EnvironmentSaved($request));
 //
-        return $redirect->route('LaravelInstaller::welcome')
+        return $redirect->route('LaravelUpdater::finishInstaller')
             ->with(['results' => $results]);
     }
 }
